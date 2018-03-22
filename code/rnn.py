@@ -666,12 +666,11 @@ if __name__ == "__main__":
 		# --- your code here --- #
 		##########################
 		rnn = RNN(vocab_size=vocab_size, hidden_dims=hdim)
-		
 		run_loss = rnn.train(X=X_train, D=D_train, X_dev=X_dev, D_dev=D_dev, learning_rate=lr, back_steps=lookback)
 		adjusted_loss = adjust_loss(run_loss, fraction_lost, q)
 
-	    print("Unadjusted: %.03f" % np.exp(run_loss))
-	    print("Adjusted for missing vocab: %.03f" % np.exp(adjusted_loss))
+		print("Unadjusted: %.03f" % np.exp(run_loss))
+		print("Adjusted for missing vocab: %.03f" % np.exp(adjusted_loss))
 
 
 	if mode == "train-np":
